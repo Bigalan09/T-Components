@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 't-menu-item',
@@ -7,9 +7,12 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class TMenuItem {
 
+  @Prop()
+  header:boolean;
+
   render() {
     return (
-      <Host>
+      <Host data-header={this.header}>
         <slot></slot>
       </Host>
     );

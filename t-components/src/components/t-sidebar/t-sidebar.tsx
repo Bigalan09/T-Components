@@ -10,6 +10,7 @@ export class TSidebar {
   render() {
     return (
       <Host>
+        <h1>T-Components</h1>
         <slot></slot>
       </Host>
     );

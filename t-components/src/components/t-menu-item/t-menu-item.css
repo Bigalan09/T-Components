@@ -1,3 +1,9 @@
 :host {
   display: block;
+  margin: var(--spacing-s) 0 var(--spacing-s) var(--spacing-l);
+}
+
+:host([data-header]) {
+  margin-left: var(--spacing-s);
+  font-weight: var(--font-weight-bold);
 }

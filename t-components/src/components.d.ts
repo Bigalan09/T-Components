@@ -13,8 +13,11 @@ export namespace Components {
     interface TMenu {
     }
     interface TMenuItem {
+        "header": boolean;
     }
     interface TSidebar {
+    }
+    interface TThemeManager {
     }
 }
 declare global {
@@ -48,12 +51,19 @@ declare global {
         prototype: HTMLTSidebarElement;
         new (): HTMLTSidebarElement;
     };
+    interface HTMLTThemeManagerElement extends Components.TThemeManager, HTMLStencilElement {
+    }
+    var HTMLTThemeManagerElement: {
+        prototype: HTMLTThemeManagerElement;
+        new (): HTMLTThemeManagerElement;
+    };
     interface HTMLElementTagNameMap {
         "t-container": HTMLTContainerElement;
         "t-display": HTMLTDisplayElement;
         "t-menu": HTMLTMenuElement;
         "t-menu-item": HTMLTMenuItemElement;
         "t-sidebar": HTMLTSidebarElement;
+        "t-theme-manager": HTMLTThemeManagerElement;
     }
 }
 declare namespace LocalJSX {
@@ -64,8 +74,11 @@ declare namespace LocalJSX {
     interface TMenu {
     }
     interface TMenuItem {
+        "header"?: boolean;
     }
     interface TSidebar {
+    }
+    interface TThemeManager {
     }
     interface IntrinsicElements {
         "t-container": TContainer;
@@ -73,6 +86,7 @@ declare namespace LocalJSX {
         "t-menu": TMenu;
         "t-menu-item": TMenuItem;
         "t-sidebar": TSidebar;
+        "t-theme-manager": TThemeManager;
     }
 }
 export { LocalJSX as JSX };
@@ -84,6 +98,7 @@ declare module "@stencil/core" {
             "t-menu": LocalJSX.TMenu & JSXBase.HTMLAttributes<HTMLTMenuElement>;
             "t-menu-item": LocalJSX.TMenuItem & JSXBase.HTMLAttributes<HTMLTMenuItemElement>;
             "t-sidebar": LocalJSX.TSidebar & JSXBase.HTMLAttributes<HTMLTSidebarElement>;
+            "t-theme-manager": LocalJSX.TThemeManager & JSXBase.HTMLAttributes<HTMLTThemeManagerElement>;
         }
     }
 }
