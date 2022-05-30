@@ -4,20 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>T-Components</title>
-
+    <link rel="stylesheet" href="/build/t-components.css" />
     <script type="module" src="/build/t-components.esm.js"></script>
     <script nomodule src="/build/t-components.js"></script>
   </head>
   <body>
-    <t-container>
-      <t-sidebar>
-        <t-menu>
-          <t-menu-item header="true">Components</t-menu-item>
-        </t-menu>
-      </t-sidebar>
-      <t-display>
-        <p>Hello World!</p>
-      </t-display>
-    </t-container>
+    <t-theme-manager>
+      <t-container>
+        <t-sidebar>
+          <t-menu>
+            <t-menu-item header="true">Components</t-menu-item>
+          </t-menu>
+        </t-sidebar>
+        <t-display>
+          <p>Hello World!</p>
+        </t-display>
+      </t-container>
+    </t-theme-manager>
   </body>
 </html>
