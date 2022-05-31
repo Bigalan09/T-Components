@@ -14,6 +14,7 @@ export namespace Components {
     }
     interface TMenuItem {
         "header": boolean;
+        "href": string;
     }
     interface TSidebar {
     }
@@ -75,6 +76,7 @@ declare namespace LocalJSX {
     }
     interface TMenuItem {
         "header"?: boolean;
+        "href"?: string;
     }
     interface TSidebar {
     }

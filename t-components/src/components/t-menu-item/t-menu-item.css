@@ -1,9 +1,20 @@
 :host {
   display: block;
-  margin: var(--spacing-s) 0 var(--spacing-s) var(--spacing-l);
+  margin: 0 0 0 var(--spacing-l);
+  padding: var(--spacing-s) var(--spacing-l);
 }
 
 :host([data-header]) {
   margin-left: var(--spacing-s);
   font-weight: var(--font-weight-bold);
+}
+
+:host(:hover) {
+  background-color: var(--color-backgroundsecondary);
+  cursor: pointer;
+}
+
+:host([data-header]:hover) {
+  cursor: default;
+  background-color: unset;
 }

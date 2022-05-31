@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, State } from '@stencil/core';
 
 @Component({
   tag: 't-sidebar',
@@ -7,11 +7,22 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class TSidebar {
 
+  @State()
+  private open:boolean = true;
+
+  private onClick() {
+    this.open = !this.open;
+  }
+  
   render() {
     return (
-      <Host>
-        <h1>T-Components</h1>
-        <slot></slot>
+      <Host
+        aria-hidden={this.open ? 'false' : 'true'}
+        style={{
+          'width': this.open ? "13vw" : "auto"
+        }}>
+        <h1 onClick={() => this.onClick()}>{this.open ? "T-Components" : ">" }</h1>
+        {this.open ? <slot></slot> : <strong></strong> }
       </Host>
     );
   }
