@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 't-menu',
@@ -9,9 +9,9 @@ export class TMenu {
 
   render() {
     return (
-      <Host>
+      <div class="menu">
         <slot></slot>
-      </Host>
+      </div>
     );
   }
 

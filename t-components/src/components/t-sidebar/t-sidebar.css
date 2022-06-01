@@ -1,20 +1,38 @@
-:host {
-  display: block;
+.sidebar {
+  display: grid;
+  grid-area: explorer;
+  grid-template-rows: minmax(0px, 1fr);
+
   height: 100vh;
   background-color: var(--color-primarybackground);
   border-right: 1px solid var(--color-welllight);
   color: var(--color-primary);
 }
 
-h1 {
-  font-size: 1.1em;
-  margin: var(--spacing-l);
-  line-height: 2.2em;
-  border-bottom: 1px solid var(--color-welllight);
+.container {
+  background-color: var(--color-primarybackground);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  position: relative;
+  width: var(--width-sm);
 }
 
+.header {
+  -moz-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid var(--color-welllight);
+  display: grid;
+  font-size: var(--font-size-sm);
+  line-height: 1.5rem;
+}
+
+h1 {
+  font-family: var(--font-family-secondary);
+  padding: 0.75rem 1.5rem;
+}
 
 aside {
-  width: 12vw;
-  height: 100vh;
+  align-content: start;
+  overflow-y: auto;
+  display: grid;
 }

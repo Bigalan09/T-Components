@@ -1,20 +1,45 @@
-:host {
-  display: block;
-  margin: 0 0 0 var(--spacing-l);
-  padding: var(--spacing-s) var(--spacing-l);
+.item {
+  background-color: var(--color-backgroundprimary);
+  display: grid;
+  height: 2rem;
+  grid-template-columns: auto 1fr auto;
+  padding: 0.4rem;
+  position: relative;
 }
 
-:host([data-header]) {
-  margin-left: var(--spacing-s);
+.item[data-header] {
+  padding: 0.1rem 0.012rem;
   font-weight: var(--font-weight-bold);
 }
 
-:host(:hover) {
+.item:hover {
   background-color: var(--color-backgroundsecondary);
   cursor: pointer;
 }
 
-:host([data-header]:hover) {
+.item[data-header]:hover {
   cursor: default;
   background-color: unset;
+}
+
+.item a:first-child:last-child {
+  padding: 0px 1.5rem;
+  grid-column: 1 / 4;
+}
+
+.item a {
+  row-gap: 1.5rem;
+  -moz-box-align: center;
+  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }

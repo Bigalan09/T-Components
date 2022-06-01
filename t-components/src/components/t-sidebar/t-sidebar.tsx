@@ -1,4 +1,4 @@
-import { Component, Host, h, State } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 't-sidebar',
@@ -9,12 +9,16 @@ export class TSidebar {
 
   render() {
     return (
-      <Host>
-        <aside>
-        <h1>T-Components</h1>
-          <slot></slot>
-        </aside>
-      </Host>
+      <div class="sidebar">
+        <div class="container">
+          <div class="header">
+            <h1>T-Components</h1>
+          </div>
+          <aside>
+            <slot></slot>
+          </aside>
+        </div>
+      </div>
     );
   }
 
