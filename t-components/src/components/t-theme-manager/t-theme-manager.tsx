@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, State, Listen } from '@stencil/core';
 
 @Component({
   tag: 't-theme-manager',
@@ -6,13 +6,26 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class TThemeManager {
+  @State() isOpen: boolean = false;
 
-  render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+  @Listen('modalClosed')
+  handleClick() {
+      this.isOpen = !this.isOpen;
   }
 
+  render() {
+    let rendered = null;
+
+    if (this.isOpen === true) {
+      rendered = <t-theme-editor></t-theme-editor>;
+    }
+
+    return <Host>
+      <button onClick={() => this.handleClick()}>
+        {this.isOpen ? "Open" : "Closed"}
+      </button>
+      <slot></slot>
+      {rendered}
+    </Host>;
+  }
 }

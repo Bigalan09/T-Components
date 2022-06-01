@@ -6,9 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface TColorEditor {
+        "color": string;
+        "colorname": string;
+    }
     interface TContainer {
     }
     interface TDisplay {
+    }
+    interface TInput {
+        "placeholder": string;
+        "type": string;
+        "value": string;
     }
     interface TMenu {
     }
@@ -18,10 +27,18 @@ export namespace Components {
     }
     interface TSidebar {
     }
+    interface TThemeEditor {
+    }
     interface TThemeManager {
     }
 }
 declare global {
+    interface HTMLTColorEditorElement extends Components.TColorEditor, HTMLStencilElement {
+    }
+    var HTMLTColorEditorElement: {
+        prototype: HTMLTColorEditorElement;
+        new (): HTMLTColorEditorElement;
+    };
     interface HTMLTContainerElement extends Components.TContainer, HTMLStencilElement {
     }
     var HTMLTContainerElement: {
@@ -33,6 +50,12 @@ declare global {
     var HTMLTDisplayElement: {
         prototype: HTMLTDisplayElement;
         new (): HTMLTDisplayElement;
+    };
+    interface HTMLTInputElement extends Components.TInput, HTMLStencilElement {
+    }
+    var HTMLTInputElement: {
+        prototype: HTMLTInputElement;
+        new (): HTMLTInputElement;
     };
     interface HTMLTMenuElement extends Components.TMenu, HTMLStencilElement {
     }
@@ -52,6 +75,12 @@ declare global {
         prototype: HTMLTSidebarElement;
         new (): HTMLTSidebarElement;
     };
+    interface HTMLTThemeEditorElement extends Components.TThemeEditor, HTMLStencilElement {
+    }
+    var HTMLTThemeEditorElement: {
+        prototype: HTMLTThemeEditorElement;
+        new (): HTMLTThemeEditorElement;
+    };
     interface HTMLTThemeManagerElement extends Components.TThemeManager, HTMLStencilElement {
     }
     var HTMLTThemeManagerElement: {
@@ -59,18 +88,30 @@ declare global {
         new (): HTMLTThemeManagerElement;
     };
     interface HTMLElementTagNameMap {
+        "t-color-editor": HTMLTColorEditorElement;
         "t-container": HTMLTContainerElement;
         "t-display": HTMLTDisplayElement;
+        "t-input": HTMLTInputElement;
         "t-menu": HTMLTMenuElement;
         "t-menu-item": HTMLTMenuItemElement;
         "t-sidebar": HTMLTSidebarElement;
+        "t-theme-editor": HTMLTThemeEditorElement;
         "t-theme-manager": HTMLTThemeManagerElement;
     }
 }
 declare namespace LocalJSX {
+    interface TColorEditor {
+        "color"?: string;
+        "colorname"?: string;
+    }
     interface TContainer {
     }
     interface TDisplay {
+    }
+    interface TInput {
+        "placeholder"?: string;
+        "type"?: string;
+        "value"?: string;
     }
     interface TMenu {
     }
@@ -80,14 +121,20 @@ declare namespace LocalJSX {
     }
     interface TSidebar {
     }
+    interface TThemeEditor {
+        "onModalClosed"?: (event: CustomEvent<boolean>) => void;
+    }
     interface TThemeManager {
     }
     interface IntrinsicElements {
+        "t-color-editor": TColorEditor;
         "t-container": TContainer;
         "t-display": TDisplay;
+        "t-input": TInput;
         "t-menu": TMenu;
         "t-menu-item": TMenuItem;
         "t-sidebar": TSidebar;
+        "t-theme-editor": TThemeEditor;
         "t-theme-manager": TThemeManager;
     }
 }
@@ -95,11 +142,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "t-color-editor": LocalJSX.TColorEditor & JSXBase.HTMLAttributes<HTMLTColorEditorElement>;
             "t-container": LocalJSX.TContainer & JSXBase.HTMLAttributes<HTMLTContainerElement>;
             "t-display": LocalJSX.TDisplay & JSXBase.HTMLAttributes<HTMLTDisplayElement>;
+            "t-input": LocalJSX.TInput & JSXBase.HTMLAttributes<HTMLTInputElement>;
             "t-menu": LocalJSX.TMenu & JSXBase.HTMLAttributes<HTMLTMenuElement>;
             "t-menu-item": LocalJSX.TMenuItem & JSXBase.HTMLAttributes<HTMLTMenuItemElement>;
             "t-sidebar": LocalJSX.TSidebar & JSXBase.HTMLAttributes<HTMLTSidebarElement>;
+            "t-theme-editor": LocalJSX.TThemeEditor & JSXBase.HTMLAttributes<HTMLTThemeEditorElement>;
             "t-theme-manager": LocalJSX.TThemeManager & JSXBase.HTMLAttributes<HTMLTThemeManagerElement>;
         }
     }
