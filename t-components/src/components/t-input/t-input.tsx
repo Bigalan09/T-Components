@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 't-input',
@@ -8,7 +8,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
 export class TInput {
 
   @Prop({mutable: true, reflect: true})
-  value: string;
+  value: any;
 
   @Prop()
   type:string = "text";
@@ -16,12 +16,17 @@ export class TInput {
   @Prop()
   placeholder:string = "";
 
+  @Event() valueChanged: EventEmitter<string>;
+    private onInputChangeValue(event: Event) {
+        this.value = (event.target as HTMLInputElement).value;
+        this.valueChanged.emit(this.value);
+    }
+  
   render() {
     return (
       <Host>
-        <input type={this.type} placeholder={this.placeholder} value={this.value} />
+        <input placeholder={this.placeholder} type={this.type} value={this.value} onInput={this.onInputChangeValue.bind(this)} />
       </Host>
     );
   }
-
 }

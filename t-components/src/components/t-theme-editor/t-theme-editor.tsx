@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h } from '@stencil/core';
+import { Component, h, Listen, Prop } from '@stencil/core';
 
 @Component({
   tag: 't-theme-editor',
@@ -43,24 +43,22 @@ export class TThemeEditor {
     "button": "#21222c"
   };
 
-  @Event() modalClosed: EventEmitter<boolean>;
-  
-  close(): void {
-    this.modalClosed.emit(true);
+  @Prop({mutable: true, reflect: true})
+  isOpen: boolean = false;
+
+  @Listen('colorChanged')
+  private colorChanged(event: CustomEvent<any>) {
+    var data = event.detail;
+    console.log(`${data.name}: ${data.color}`);
   }
 
   render() {
     return (
-      <div class="overlay is-visible">
-        <div class="modal-window">
-          <div class="close" onClick={() => this.close()}>X</div>
-          <div class="modal-window__content">
-          {Object.keys(this._theme).map((color) =>
-            <t-color-editor colorname={color} color={this._theme[color]}></t-color-editor>
-          )}
-          </div>
-        </div>
-      </div>
+      <t-modal isOpen={this.isOpen}>
+        {Object.keys(this._theme).map((color) =>
+          <t-color-editor colorname={color} color={this._theme[color]}></t-color-editor>
+        )}
+      </t-modal>
     );
   }
 

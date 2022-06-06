@@ -10,22 +10,16 @@ export class TThemeManager {
 
   @Listen('modalClosed')
   handleClick() {
-      this.isOpen = !this.isOpen;
+    this.isOpen = !this.isOpen;
   }
 
   render() {
-    let rendered = null;
-
-    if (this.isOpen === true) {
-      rendered = <t-theme-editor></t-theme-editor>;
-    }
-
     return <Host>
       <button onClick={() => this.handleClick()}>
         {this.isOpen ? "Open" : "Closed"}
       </button>
       <slot></slot>
-      {rendered}
+      <t-theme-editor isOpen={this.isOpen}></t-theme-editor>
     </Host>;
   }
 }

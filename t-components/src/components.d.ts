@@ -17,7 +17,7 @@ export namespace Components {
     interface TInput {
         "placeholder": string;
         "type": string;
-        "value": string;
+        "value": any;
     }
     interface TMenu {
     }
@@ -25,9 +25,13 @@ export namespace Components {
         "header": boolean;
         "href": string;
     }
+    interface TModal {
+        "isOpen": boolean;
+    }
     interface TSidebar {
     }
     interface TThemeEditor {
+        "isOpen": boolean;
     }
     interface TThemeManager {
     }
@@ -69,6 +73,12 @@ declare global {
         prototype: HTMLTMenuItemElement;
         new (): HTMLTMenuItemElement;
     };
+    interface HTMLTModalElement extends Components.TModal, HTMLStencilElement {
+    }
+    var HTMLTModalElement: {
+        prototype: HTMLTModalElement;
+        new (): HTMLTModalElement;
+    };
     interface HTMLTSidebarElement extends Components.TSidebar, HTMLStencilElement {
     }
     var HTMLTSidebarElement: {
@@ -94,6 +104,7 @@ declare global {
         "t-input": HTMLTInputElement;
         "t-menu": HTMLTMenuElement;
         "t-menu-item": HTMLTMenuItemElement;
+        "t-modal": HTMLTModalElement;
         "t-sidebar": HTMLTSidebarElement;
         "t-theme-editor": HTMLTThemeEditorElement;
         "t-theme-manager": HTMLTThemeManagerElement;
@@ -103,15 +114,17 @@ declare namespace LocalJSX {
     interface TColorEditor {
         "color"?: string;
         "colorname"?: string;
+        "onColorChanged"?: (event: CustomEvent<any>) => void;
     }
     interface TContainer {
     }
     interface TDisplay {
     }
     interface TInput {
+        "onValueChanged"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;
         "type"?: string;
-        "value"?: string;
+        "value"?: any;
     }
     interface TMenu {
     }
@@ -119,10 +132,14 @@ declare namespace LocalJSX {
         "header"?: boolean;
         "href"?: string;
     }
+    interface TModal {
+        "isOpen"?: boolean;
+        "onModalClosed"?: (event: CustomEvent<boolean>) => void;
+    }
     interface TSidebar {
     }
     interface TThemeEditor {
-        "onModalClosed"?: (event: CustomEvent<boolean>) => void;
+        "isOpen"?: boolean;
     }
     interface TThemeManager {
     }
@@ -133,6 +150,7 @@ declare namespace LocalJSX {
         "t-input": TInput;
         "t-menu": TMenu;
         "t-menu-item": TMenuItem;
+        "t-modal": TModal;
         "t-sidebar": TSidebar;
         "t-theme-editor": TThemeEditor;
         "t-theme-manager": TThemeManager;
@@ -148,6 +166,7 @@ declare module "@stencil/core" {
             "t-input": LocalJSX.TInput & JSXBase.HTMLAttributes<HTMLTInputElement>;
             "t-menu": LocalJSX.TMenu & JSXBase.HTMLAttributes<HTMLTMenuElement>;
             "t-menu-item": LocalJSX.TMenuItem & JSXBase.HTMLAttributes<HTMLTMenuItemElement>;
+            "t-modal": LocalJSX.TModal & JSXBase.HTMLAttributes<HTMLTModalElement>;
             "t-sidebar": LocalJSX.TSidebar & JSXBase.HTMLAttributes<HTMLTSidebarElement>;
             "t-theme-editor": LocalJSX.TThemeEditor & JSXBase.HTMLAttributes<HTMLTThemeEditorElement>;
             "t-theme-manager": LocalJSX.TThemeManager & JSXBase.HTMLAttributes<HTMLTThemeManagerElement>;
