@@ -55,9 +55,11 @@ export class TThemeEditor {
   render() {
     return (
       <t-modal isOpen={this.isOpen}>
+        <div class="container">
         {Object.keys(this._theme).map((color) =>
           <t-color-editor colorname={color} color={this._theme[color]}></t-color-editor>
         )}
+        </div>
       </t-modal>
     );
   }

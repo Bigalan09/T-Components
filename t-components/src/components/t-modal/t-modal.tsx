@@ -24,7 +24,9 @@ export class TModal {
         'is-visible': this.isOpen
       }}>
         <div class="modal">
-          <div class="close" onClick={() => this.close()}>X</div>
+          <div class="close" onClick={() => this.close()}>
+            &#x2716;
+          </div>
           <div class="content">
             <slot></slot>
           </div>

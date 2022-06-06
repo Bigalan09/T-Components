@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, Listen, Element } from '@stencil/core';
 
 @Component({
   tag: 't-color-editor',
@@ -6,6 +6,8 @@ import { Component, Host, h, Prop, Event, EventEmitter, Listen } from '@stencil/
   shadow: true,
 })
 export class TColorEditor {
+
+  @Element() colorElement: HTMLElement;
 
   @Prop()
   color: string;
@@ -16,9 +18,16 @@ export class TColorEditor {
   @Event() colorChanged: EventEmitter<any>;
 
   @Listen('valueChanged')
-  private onValueChanged(event: CustomEvent<any>) {
+  private _onValueChanged(event: CustomEvent<any>) {
     let value = event.detail;
+    this.color = value;
     this.colorChanged.emit({color: value, name: this.colorname});
+    this.colorElement.style.borderLeftColor = this.color;
+  }
+
+  
+  componentWillLoad() {
+    this.colorElement.style.borderLeftColor = this.color;
   }
 
   render() {
