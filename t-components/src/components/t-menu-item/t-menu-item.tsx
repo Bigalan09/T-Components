@@ -1,4 +1,4 @@
-import { Component, h, Prop, Listen } from '@stencil/core';
+import { Component, h, Prop, Listen, Event, EventEmitter, Element } from '@stencil/core';
 
 @Component({
   tag: 't-menu-item',
@@ -7,16 +7,23 @@ import { Component, h, Prop, Listen } from '@stencil/core';
 })
 export class TMenuItem {
 
+  @Element()
+  el: HTMLElement;
+
   @Prop()
   header:boolean;
 
   @Prop()
   href:string;
 
+  @Event({eventName: 'menuItemClicked'}) menuItemClicked: EventEmitter<void>;
+
   @Listen('click', { capture: true })
   private onClick(_event) {
     if (this.href) {
       window.location.href = this.href;
+    } else {
+      this.menuItemClicked.emit();
     }
   }
 

@@ -20,11 +20,9 @@ export class TColorEditor {
   @Listen('valueChanged')
   private _onValueChanged(event: CustomEvent<any>) {
     let value = event.detail;
-    this.color = value;
     this.colorChanged.emit({color: value, name: this.colorname});
-    this.colorElement.style.borderLeftColor = this.color;
+    this.colorElement.style.borderLeftColor = value;
   }
-
   
   componentWillLoad() {
     this.colorElement.style.borderLeftColor = this.color;

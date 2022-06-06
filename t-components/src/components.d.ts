@@ -34,6 +34,7 @@ export namespace Components {
         "isOpen": boolean;
     }
     interface TThemeManager {
+        "open": () => Promise<void>;
     }
 }
 declare global {
@@ -131,6 +132,7 @@ declare namespace LocalJSX {
     interface TMenuItem {
         "header"?: boolean;
         "href"?: string;
+        "onMenuItemClicked"?: (event: CustomEvent<void>) => void;
     }
     interface TModal {
         "isOpen"?: boolean;
@@ -140,6 +142,7 @@ declare namespace LocalJSX {
     }
     interface TThemeEditor {
         "isOpen"?: boolean;
+        "onThemeEdited"?: (event: CustomEvent<any>) => void;
     }
     interface TThemeManager {
     }

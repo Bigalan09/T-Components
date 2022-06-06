@@ -1,4 +1,4 @@
-import { Component, h, Listen, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Listen, Prop } from '@stencil/core';
 
 @Component({
   tag: 't-theme-editor',
@@ -46,10 +46,13 @@ export class TThemeEditor {
   @Prop({mutable: true, reflect: true})
   isOpen: boolean = false;
 
+  @Event() themeEdited: EventEmitter<any>;
+
   @Listen('colorChanged')
   private colorChanged(event: CustomEvent<any>) {
     var data = event.detail;
-    console.log(`${data.name}: ${data.color}`);
+    this._theme[data.name] = data.color;
+    this.themeEdited.emit(this._theme);
   }
 
   render() {
