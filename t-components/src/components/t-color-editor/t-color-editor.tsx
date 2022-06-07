@@ -18,7 +18,7 @@ export class TColorEditor {
   @Event() colorChanged: EventEmitter<any>;
 
   @Listen('valueChanged')
-  private _onValueChanged(event: CustomEvent<any>) {
+  _onValueChanged(event: CustomEvent<any>) {
     let value = event.detail;
     this.colorChanged.emit({color: value, name: this.colorname});
     this.colorElement.style.borderLeftColor = value;

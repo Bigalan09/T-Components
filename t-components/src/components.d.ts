@@ -32,6 +32,7 @@ export namespace Components {
     }
     interface TThemeEditor {
         "isOpen": boolean;
+        "theme": any;
     }
     interface TThemeManager {
         "open": () => Promise<void>;
@@ -143,6 +144,7 @@ declare namespace LocalJSX {
     interface TThemeEditor {
         "isOpen"?: boolean;
         "onThemeEdited"?: (event: CustomEvent<any>) => void;
+        "theme"?: any;
     }
     interface TThemeManager {
     }
