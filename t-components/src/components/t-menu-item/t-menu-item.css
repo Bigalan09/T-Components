@@ -10,6 +10,7 @@
 .item[data-header] {
   padding: 0.1rem 0.012rem;
   font-weight: var(--font-weight-bold);
+  cursor: default;
 }
 
 .item:hover {
@@ -18,7 +19,6 @@
 }
 
 .item[data-header]:hover {
-  cursor: default;
   background-color: unset;
 }
 

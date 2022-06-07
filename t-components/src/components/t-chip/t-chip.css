@@ -1,0 +1,25 @@
+.chip {
+  display: inline-flex;
+  position: relative;
+  box-sizing: content-box;
+  align-items: center;
+  height: 15px;
+  padding: 10px;
+  background: var(--color-tag-1);
+  border-radius: 17px;
+  font-size: 14px;
+  font-family: var(--font-family-primary);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.chip-text {
+  min-width: 20px;
+}
+
+.chip-close {
+  width: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  margin-left: 5px;
+  cursor: pointer;
+}

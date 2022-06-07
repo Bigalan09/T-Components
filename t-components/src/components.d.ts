@@ -37,6 +37,7 @@ export namespace Components {
     }
     interface TThemeManager {
         "open": () => Promise<void>;
+        "resetTheme": () => Promise<void>;
     }
 }
 declare global {

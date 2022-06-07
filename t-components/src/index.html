@@ -31,6 +31,7 @@
           <t-menu>
             <t-menu-item header="true">Settings</t-menu-item>
             <t-menu-item id="edit-theme">Edit Theme</t-menu-item>
+            <t-menu-item id="reset-theme">Reset Theme</t-menu-item>
           </t-menu>
         </t-sidebar>
         <t-display>
@@ -44,9 +45,14 @@
         await customElements.whenDefined('t-theme-manager');
         await customElements.whenDefined('t-menu-item');
         const editTheme = document.querySelector('#edit-theme');
+        const resetTheme = document.querySelector('#reset-theme');
         const themeManager = document.querySelector('t-theme-manager');
+        
         editTheme.addEventListener('menuItemClicked', (event) => {
           themeManager.open();
+        });
+        resetTheme.addEventListener('menuItemClicked', (event) => {
+          themeManager.resetTheme();
         });
       })();
     </script>

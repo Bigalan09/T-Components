@@ -7,19 +7,21 @@ import { Component, Host, h, State, Listen, Method } from '@stencil/core';
 })
 export class TThemeManager {
   @State() isOpen: boolean = false;
-  @State() theme: any = {
+  @State() _theme :any;
+  
+  private defultTheme: any = {
     "primarylight": "#7082b8",
     "primary": "#f8f8f2",
     "primarydark": "#ff79c6",
-    "successlight": "#0f0",
-    "success": "#0c0",
-    "successdark": "#090",
+    "successlight": "#00ff00",
+    "success": "#00cc00",
+    "successdark": "#009900",
     "errorlight": "#fd4545",
     "error": "#ff2d2d",
     "errordark": "#c62424",
-    "secondarylight": "#AAA",
+    "secondarylight": "#aaaaaa",
     "secondary": "#8be9fd",
-    "secondarydark": "#666",
+    "secondarydark": "#666666",
     "warninglight": "#ffc281",
     "warning": "#ffb86c",
     "warningdark": "#e6a055",
@@ -28,7 +30,7 @@ export class TThemeManager {
     "infodark": "#4040ff",
     "welllight": "#44475a",
     "well": "#363948",
-    "white": "#fff",
+    "white": "#ffffff",
     "black": "#282a36",
     "tag-1": "#d34448",
     "tag-2": "#50fa7b",
@@ -57,18 +59,22 @@ export class TThemeManager {
     this._handleThemeUpdate();
   }
 
+  @Method()
+  async resetTheme() {
+    localStorage.removeItem('theme-data');
+    this._handleThemeUpdate();
+  }
+
   @Listen('themeEdited')
   themeEdited(event: CustomEvent<any>) {
     const data = event.detail;
-    this.theme = data;
-
-    localStorage.setItem('theme-data', JSON.stringify(this.theme));
+    localStorage.setItem('theme-data', JSON.stringify(data));
 
     this._handleThemeUpdate();
   }
 
   private _handleThemeUpdate() {
-    let theme = this.theme;
+    let theme = this.defultTheme;
     if (localStorage.getItem('theme-data') !== null) {
       theme = JSON.parse(localStorage.getItem('theme-data'));
     }
@@ -76,13 +82,13 @@ export class TThemeManager {
     Object.keys(theme).forEach((name) => {
       document.documentElement.style.setProperty(`--color-${name}`, theme[name]) ;
     });
-    this.theme = theme;
+    this._theme = theme;
   }
 
   render() {
     return <Host>
       <slot></slot>
-      <t-theme-editor theme={this.theme} isOpen={this.isOpen}></t-theme-editor>
+      <t-theme-editor theme={this._theme} isOpen={this.isOpen}></t-theme-editor>
     </Host>;
   }
 }
