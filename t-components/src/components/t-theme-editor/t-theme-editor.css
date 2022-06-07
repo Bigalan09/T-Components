@@ -10,6 +10,7 @@
 
 .container > * {
   box-sizing: border-box;
-  flex: 1;
-  margin: var(--spacing-s)
+  flex: auto;
+  margin: var(--spacing-s);
+  width: var(--width-xs);
 }

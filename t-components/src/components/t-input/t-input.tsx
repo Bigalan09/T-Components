@@ -6,6 +6,8 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class TInput {
+  @Prop({mutable: true, reflect: true})
+  fullwidth:boolean = false;
 
   @Prop({mutable: true, reflect: true})
   value: any;
@@ -24,7 +26,7 @@ export class TInput {
   
   render() {
     return (
-      <Host>
+      <Host data-fullwidth={this.fullwidth}>
         <input placeholder={this.placeholder} type={this.type} value={this.value} onInput={this.onInputChangeValue.bind(this)} />
       </Host>
     );

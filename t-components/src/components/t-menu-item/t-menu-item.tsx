@@ -19,7 +19,7 @@ export class TMenuItem {
   @Event({eventName: 'menuItemClicked'}) menuItemClicked: EventEmitter<void>;
 
   @Listen('click', { capture: true })
-  private onClick(_event) {
+  _onClick(_event) {
     if (this.href) {
       window.location.href = this.href;
     } else {

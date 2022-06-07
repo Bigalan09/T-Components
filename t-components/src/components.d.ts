@@ -15,6 +15,7 @@ export namespace Components {
     interface TDisplay {
     }
     interface TInput {
+        "fullwidth": boolean;
         "placeholder": string;
         "type": string;
         "value": any;
@@ -123,6 +124,7 @@ declare namespace LocalJSX {
     interface TDisplay {
     }
     interface TInput {
+        "fullwidth"?: boolean;
         "onValueChanged"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;
         "type"?: string;

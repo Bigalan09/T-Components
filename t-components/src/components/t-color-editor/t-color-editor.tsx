@@ -32,7 +32,7 @@ export class TColorEditor {
     return (
       <Host>
         <label>{this.colorname}</label><br />
-        <t-input type="text" value={this.color} />
+        <t-input type="color" value={this.color} fullwidth={true} />
       </Host>
     );
   }
