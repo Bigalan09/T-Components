@@ -62,7 +62,8 @@
           await toast.open();
 
           toast.addEventListener('toast-closed', async event => {
-            document.body.removeChild(toast);
+            // document.body.removeChild(toast);
+            console.log("a");
           })
         });
       })();
