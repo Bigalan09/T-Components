@@ -58,6 +58,15 @@ export namespace Components {
         "open": () => Promise<void>;
         "resetTheme": () => Promise<void>;
     }
+    interface TToast {
+        "fadeDuration"?: number;
+        "open": () => Promise<void>;
+        "opened"?: boolean;
+        "positionRight"?: number;
+        "positionTop"?: number;
+        "size"?: string;
+        "variant"?: string;
+    }
 }
 declare global {
     interface HTMLTButtonElement extends Components.TButton, HTMLStencilElement {
@@ -138,6 +147,12 @@ declare global {
         prototype: HTMLTThemeManagerElement;
         new (): HTMLTThemeManagerElement;
     };
+    interface HTMLTToastElement extends Components.TToast, HTMLStencilElement {
+    }
+    var HTMLTToastElement: {
+        prototype: HTMLTToastElement;
+        new (): HTMLTToastElement;
+    };
     interface HTMLElementTagNameMap {
         "t-button": HTMLTButtonElement;
         "t-chip": HTMLTChipElement;
@@ -152,6 +167,7 @@ declare global {
         "t-sidebar": HTMLTSidebarElement;
         "t-theme-editor": HTMLTThemeEditorElement;
         "t-theme-manager": HTMLTThemeManagerElement;
+        "t-toast": HTMLTToastElement;
     }
 }
 declare namespace LocalJSX {
@@ -194,7 +210,7 @@ declare namespace LocalJSX {
     interface TMenuItem {
         "header"?: boolean;
         "href"?: string;
-        "onMenuItemClicked"?: (event: CustomEvent<void>) => void;
+        "onMenu-item-clicked"?: (event: CustomEvent<void>) => void;
     }
     interface TModal {
         "isOpen"?: boolean;
@@ -210,6 +226,15 @@ declare namespace LocalJSX {
     }
     interface TThemeManager {
     }
+    interface TToast {
+        "fadeDuration"?: number;
+        "onToast-closed"?: (event: CustomEvent<void>) => void;
+        "opened"?: boolean;
+        "positionRight"?: number;
+        "positionTop"?: number;
+        "size"?: string;
+        "variant"?: string;
+    }
     interface IntrinsicElements {
         "t-button": TButton;
         "t-chip": TChip;
@@ -224,6 +249,7 @@ declare namespace LocalJSX {
         "t-sidebar": TSidebar;
         "t-theme-editor": TThemeEditor;
         "t-theme-manager": TThemeManager;
+        "t-toast": TToast;
     }
 }
 export { LocalJSX as JSX };
@@ -243,6 +269,7 @@ declare module "@stencil/core" {
             "t-sidebar": LocalJSX.TSidebar & JSXBase.HTMLAttributes<HTMLTSidebarElement>;
             "t-theme-editor": LocalJSX.TThemeEditor & JSXBase.HTMLAttributes<HTMLTThemeEditorElement>;
             "t-theme-manager": LocalJSX.TThemeManager & JSXBase.HTMLAttributes<HTMLTThemeManagerElement>;
+            "t-toast": LocalJSX.TToast & JSXBase.HTMLAttributes<HTMLTToastElement>;
         }
     }
 }

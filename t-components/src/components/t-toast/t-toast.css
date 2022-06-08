@@ -1,0 +1,19 @@
+:host {
+}
+
+.toast {
+  width: var(--width-md);
+  display: flex;
+  opacity: 0;
+  z-index: 999;
+  position: fixed;
+  padding: var(--spacing-m) var(--spacing-l);
+  background: var(--color-backgroundsecondary);
+  box-shadow: var(--box-shadow-base);
+  border: 1px solid var(--color-welllight);
+  box-sizing: border-box;
+  border-radius: var(--border-radius-base);
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-primary);
+}

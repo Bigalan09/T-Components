@@ -51,11 +51,19 @@
         const resetTheme = document.querySelector('#reset-theme');
         const themeManager = document.querySelector('t-theme-manager');
 
-        editTheme.addEventListener('menuItemClicked', event => {
-          themeManager.open();
+        editTheme.addEventListener('menu-item-clicked', async event => {
+          await themeManager.open();
         });
-        resetTheme.addEventListener('menuItemClicked', event => {
-          themeManager.resetTheme();
+        resetTheme.addEventListener('menu-item-clicked', async event => {
+          await themeManager.resetTheme();
+          const toast = document.createElement('t-toast');
+          toast.innerHTML = "<p>Theme Reset!</p>"
+          document.body.appendChild(toast);
+          await toast.open();
+
+          toast.addEventListener('toast-closed', async event => {
+            document.body.removeChild(toast);
+          })
         });
       })();
     </script>

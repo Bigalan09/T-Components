@@ -15,7 +15,7 @@ export class TMenuItem {
   @Prop()
   href: string;
 
-  @Event({ eventName: 'menuItemClicked' }) menuItemClicked: EventEmitter<void>;
+  @Event({ eventName: 'menu-item-clicked' }) menuItemClicked: EventEmitter<void>;
 
   @Listen('click', { capture: true })
   _onClick(_event) {
