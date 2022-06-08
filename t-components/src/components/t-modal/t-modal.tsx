@@ -6,12 +6,11 @@ import { Component, h, Event, EventEmitter, Prop } from '@stencil/core';
   shadow: true,
 })
 export class TModal {
-
-  @Prop({mutable: true, reflect: true})
+  @Prop({ mutable: true, reflect: true })
   isOpen: boolean = false;
 
   @Event() modalClosed: EventEmitter<boolean>;
-  
+
   close(): void {
     this.isOpen = false;
     this.modalClosed.emit(true);
@@ -19,10 +18,12 @@ export class TModal {
 
   render() {
     return (
-      <div class={{
-        'overlay': true,
-        'is-visible': this.isOpen
-      }}>
+      <div
+        class={{
+          'overlay': true,
+          'is-visible': this.isOpen,
+        }}
+      >
         <div class="modal">
           <div class="close" onClick={() => this.close()}>
             &#x2716;
@@ -34,5 +35,4 @@ export class TModal {
       </div>
     );
   }
-
 }

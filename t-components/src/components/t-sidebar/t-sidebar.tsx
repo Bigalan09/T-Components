@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 't-sidebar',
@@ -6,14 +6,22 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class TSidebar {
+  @Prop()
+  header?: string = null;
 
   render() {
+    let title = '';
+    if (this.header !== null) {
+      title = (
+        <div class="header">
+          <h1>{this.header}</h1>
+        </div>
+      );
+    }
     return (
       <div class="sidebar">
         <div class="container">
-          <div class="header">
-            <h1>T-Components</h1>
-          </div>
+          {title}
           <aside>
             <slot></slot>
           </aside>
@@ -21,5 +29,4 @@ export class TSidebar {
       </div>
     );
   }
-
 }

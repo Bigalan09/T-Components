@@ -6,24 +6,24 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class TInput {
-  @Prop({mutable: true, reflect: true})
-  fullwidth:boolean = false;
+  @Prop({ mutable: true, reflect: true })
+  fullwidth: boolean = false;
 
-  @Prop({mutable: true, reflect: true})
+  @Prop({ mutable: true, reflect: true })
   value: any;
 
   @Prop()
-  type:string = "text";
+  type: string = 'text';
 
   @Prop()
-  placeholder:string = "";
+  placeholder: string = '';
 
   @Event() valueChanged: EventEmitter<string>;
-    private onInputChangeValue(event: Event) {
-        this.value = (event.target as HTMLInputElement).value;
-        this.valueChanged.emit(this.value);
-    }
-  
+  private onInputChangeValue(event: Event) {
+    this.value = (event.target as HTMLInputElement).value;
+    this.valueChanged.emit(this.value);
+  }
+
   render() {
     return (
       <Host data-fullwidth={this.fullwidth}>

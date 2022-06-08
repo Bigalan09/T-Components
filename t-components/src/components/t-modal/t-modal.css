@@ -1,35 +1,31 @@
-.overlay
-{
+.overlay {
   box-sizing: border-box;
   opacity: 0;
   visibility: hidden;
 
-  position:fixed;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
 
-  background: rgba(0,0,0,0.42);
+  background: rgba(0, 0, 0, 0.42);
   -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
-          transition: opacity 0.5s, visibility 0s 0.5s;
-  
-  
+  transition: opacity 0.5s, visibility 0s 0.5s;
+
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-primary);
 }
 
-.is-visible
-{
+.is-visible {
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.modal
-{
+.modal {
   box-sizing: border-box;
   background: var(--color-backgroundprimary);
   width: 100%;
@@ -40,20 +36,18 @@
   flex-direction: column;
 }
 
-@media only screen and (min-width:769px) {
+@media only screen and (min-width: 769px) {
   .overlay {
     height: 100%;
   }
-  .modal
-  {
+  .modal {
     border-radius: var(--border-radius-base);
     width: 65%;
     height: 63%;
   }
 }
 
-.content
-{
+.content {
   box-sizing: border-box;
   display: flex;
   width: 100%;
@@ -62,8 +56,7 @@
   margin-bottom: var(--spacing-s);
 }
 
-.close
-{
+.close {
   margin: var(--spacing-l) var(--spacing-xl);
   cursor: pointer;
   align-self: end;

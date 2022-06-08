@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>T-Components</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Code+Pro:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Code+Pro:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/build/t-components.css" />
     <script type="module" src="/build/t-components.esm.js"></script>
     <script nomodule src="/build/t-components.js"></script>
@@ -14,7 +17,7 @@
   <body>
     <t-theme-manager>
       <t-container>
-        <t-sidebar>
+        <t-sidebar header="T-Components">
           <t-menu>
             <t-menu-item header="true">Components</t-menu-item>
             <t-menu-item>Add Component</t-menu-item>
@@ -26,7 +29,7 @@
             <t-menu-item>Sub Blah</t-menu-item>
             <t-menu-item>Sub Blah</t-menu-item>
             <t-menu-item>Sub Blah</t-menu-item>
-            <t-menu-item >Sub Blah</t-menu-item>
+            <t-menu-item>Sub Blah</t-menu-item>
           </t-menu>
           <t-menu>
             <t-menu-item header="true">Settings</t-menu-item>
@@ -40,18 +43,18 @@
       </t-container>
     </t-theme-manager>
     <script>
-      function doIt () {alert("hi")};
       (async () => {
         await customElements.whenDefined('t-theme-manager');
         await customElements.whenDefined('t-menu-item');
+
         const editTheme = document.querySelector('#edit-theme');
         const resetTheme = document.querySelector('#reset-theme');
         const themeManager = document.querySelector('t-theme-manager');
-        
-        editTheme.addEventListener('menuItemClicked', (event) => {
+
+        editTheme.addEventListener('menuItemClicked', event => {
           themeManager.open();
         });
-        resetTheme.addEventListener('menuItemClicked', (event) => {
+        resetTheme.addEventListener('menuItemClicked', event => {
           themeManager.resetTheme();
         });
       })();

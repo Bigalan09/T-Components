@@ -6,17 +6,16 @@ import { Component, h, Prop, Listen, Event, EventEmitter, Element } from '@stenc
   shadow: true,
 })
 export class TMenuItem {
-
   @Element()
   el: HTMLElement;
 
   @Prop()
-  header:boolean;
+  header: boolean;
 
   @Prop()
-  href:string;
+  href: string;
 
-  @Event({eventName: 'menuItemClicked'}) menuItemClicked: EventEmitter<void>;
+  @Event({ eventName: 'menuItemClicked' }) menuItemClicked: EventEmitter<void>;
 
   @Listen('click', { capture: true })
   _onClick(_event) {
@@ -30,9 +29,12 @@ export class TMenuItem {
   render() {
     return (
       <div class="item" data-header={this.header}>
-        <a><span><slot></slot></span></a>
+        <a>
+          <span>
+            <slot></slot>
+          </span>
+        </a>
       </div>
     );
   }
-
 }

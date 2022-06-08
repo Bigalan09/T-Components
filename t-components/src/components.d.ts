@@ -6,6 +6,24 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface TButton {
+        "disabled"?: boolean;
+        "href"?: string;
+        "innerTabindex"?: number;
+        "name"?: string;
+        "setFocus": () => Promise<void>;
+        "size"?: 'small' | 'large';
+        "target"?: string;
+        "type"?: 'reset' | 'submit' | 'button';
+        "value"?: string;
+        "variant"?: string;
+    }
+    interface TChip {
+        "closeable": boolean;
+        "text": string;
+    }
+    interface TChipSelect {
+    }
     interface TColorEditor {
         "color": string;
         "colorname": string;
@@ -30,6 +48,7 @@ export namespace Components {
         "isOpen": boolean;
     }
     interface TSidebar {
+        "header"?: string;
     }
     interface TThemeEditor {
         "isOpen": boolean;
@@ -41,6 +60,24 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLTButtonElement extends Components.TButton, HTMLStencilElement {
+    }
+    var HTMLTButtonElement: {
+        prototype: HTMLTButtonElement;
+        new (): HTMLTButtonElement;
+    };
+    interface HTMLTChipElement extends Components.TChip, HTMLStencilElement {
+    }
+    var HTMLTChipElement: {
+        prototype: HTMLTChipElement;
+        new (): HTMLTChipElement;
+    };
+    interface HTMLTChipSelectElement extends Components.TChipSelect, HTMLStencilElement {
+    }
+    var HTMLTChipSelectElement: {
+        prototype: HTMLTChipSelectElement;
+        new (): HTMLTChipSelectElement;
+    };
     interface HTMLTColorEditorElement extends Components.TColorEditor, HTMLStencilElement {
     }
     var HTMLTColorEditorElement: {
@@ -102,6 +139,9 @@ declare global {
         new (): HTMLTThemeManagerElement;
     };
     interface HTMLElementTagNameMap {
+        "t-button": HTMLTButtonElement;
+        "t-chip": HTMLTChipElement;
+        "t-chip-select": HTMLTChipSelectElement;
         "t-color-editor": HTMLTColorEditorElement;
         "t-container": HTMLTContainerElement;
         "t-display": HTMLTDisplayElement;
@@ -115,6 +155,24 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface TButton {
+        "disabled"?: boolean;
+        "href"?: string;
+        "innerTabindex"?: number;
+        "name"?: string;
+        "size"?: 'small' | 'large';
+        "target"?: string;
+        "type"?: 'reset' | 'submit' | 'button';
+        "value"?: string;
+        "variant"?: string;
+    }
+    interface TChip {
+        "closeable"?: boolean;
+        "onChip-close"?: (event: CustomEvent<any>) => void;
+        "text"?: string;
+    }
+    interface TChipSelect {
+    }
     interface TColorEditor {
         "color"?: string;
         "colorname"?: string;
@@ -143,6 +201,7 @@ declare namespace LocalJSX {
         "onModalClosed"?: (event: CustomEvent<boolean>) => void;
     }
     interface TSidebar {
+        "header"?: string;
     }
     interface TThemeEditor {
         "isOpen"?: boolean;
@@ -152,6 +211,9 @@ declare namespace LocalJSX {
     interface TThemeManager {
     }
     interface IntrinsicElements {
+        "t-button": TButton;
+        "t-chip": TChip;
+        "t-chip-select": TChipSelect;
         "t-color-editor": TColorEditor;
         "t-container": TContainer;
         "t-display": TDisplay;
@@ -168,6 +230,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "t-button": LocalJSX.TButton & JSXBase.HTMLAttributes<HTMLTButtonElement>;
+            "t-chip": LocalJSX.TChip & JSXBase.HTMLAttributes<HTMLTChipElement>;
+            "t-chip-select": LocalJSX.TChipSelect & JSXBase.HTMLAttributes<HTMLTChipSelectElement>;
             "t-color-editor": LocalJSX.TColorEditor & JSXBase.HTMLAttributes<HTMLTColorEditorElement>;
             "t-container": LocalJSX.TContainer & JSXBase.HTMLAttributes<HTMLTContainerElement>;
             "t-display": LocalJSX.TDisplay & JSXBase.HTMLAttributes<HTMLTDisplayElement>;

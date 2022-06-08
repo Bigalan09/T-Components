@@ -1,84 +1,86 @@
 :root {
-    /* Typography */
-    --font-family-primary: "Source Sans Pro",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
-    --font-family-secondary: "Oswald",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
-    --font-family-mono: "Source Code Pro",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 2rem;
-    --font-size-icon-base: 4rem;
-    --font-size-icon-lg: 6rem;
-    --font-weight-normal: 400;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+  /* Typography */
+  --font-family-primary: 'Source Sans Pro', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+  --font-family-secondary: 'Oswald', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+  --font-family-mono: 'Source Code Pro', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-icon-base: 4rem;
+  --font-size-icon-lg: 6rem;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-    --width-xs: 15rem;
-    --width-sm: 28rem;
-    --width-md: 44rem;
-    --width-lg: 60rem;
-    --width-xl: 92rem;
-    --border-radius-base: 0.25rem;
-    --border-radius-full: 9999px;
-    --box-shadow-base: 0 0.25rem 0.75rem -0.125rem rgba(16, 16, 16, 0.08),0 0 0 1px rgba(16, 16, 16, 0.02);
-    --box-shadow-lg: 0 0.25rem 0.75rem -0.125rem rgba(8, 8, 8, 0.16),0 0 0 1px rgba(8, 8, 8, 0.04);
+  --width-xs: 15rem;
+  --width-sm: 28rem;
+  --width-md: 44rem;
+  --width-lg: 60rem;
+  --width-xl: 92rem;
+  --border-radius-base: 0.25rem;
+  --border-radius-full: 9999px;
+  --box-shadow-base: 0 0.25rem 0.75rem -0.125rem rgba(16, 16, 16, 0.08), 0 0 0 1px rgba(16, 16, 16, 0.02);
+  --box-shadow-lg: 0 0.25rem 0.75rem -0.125rem rgba(8, 8, 8, 0.16), 0 0 0 1px rgba(8, 8, 8, 0.04);
 
-    /* Colors */
-    --white: #fff;
-    --black: #282a36;
-    --gray100: hsl(218, 8%, 94%);
-    --gray200: hsl(218, 8%, 84%);
-    --gray300: hsl(218, 8%, 74%);
-    --gray400: hsl(218, 8%, 64%);
-    --gray500: hsl(218, 8%, 54%);
-    --gray600: hsl(218, 8%, 44%);
-    --gray700: hsl(218, 8%, 34%);
-    --gray800: hsl(218, 8%, 24%);
-    --gray900: hsl(218, 8%, 14%);
+  /* Colors */
+  --white: #fff;
+  --black: #282a36;
+  --gray100: hsl(218, 8%, 94%);
+  --gray200: hsl(218, 8%, 84%);
+  --gray300: hsl(218, 8%, 74%);
+  --gray400: hsl(218, 8%, 64%);
+  --gray500: hsl(218, 8%, 54%);
+  --gray600: hsl(218, 8%, 44%);
+  --gray700: hsl(218, 8%, 34%);
+  --gray800: hsl(218, 8%, 24%);
+  --gray900: hsl(218, 8%, 14%);
 
-    --color-primarylight: #7082b8;
-    --color-primary: #f8f8f2;
-    --color-primarydark: #ff79c6;
-    --color-successlight: #0f0;
-    --color-success: #0c0;
-    --color-successdark: #090;
-    --color-errorlight: #fd4545;
-    --color-error: #ff2d2d;
-    --color-errordark: #c62424;
-    --color-secondarylight: #AAA;
-    --color-secondary: #8be9fd;
-    --color-secondarydark: #666;
-    --color-warninglight: #ffc281;
-    --color-warning: #ffb86c;
-    --color-warningdark: #e6a055;
-    --color-infolight: #a0a0ff;
-    --color-info: #7070ff;
-    --color-infodark: #4040ff;
-    --color-welllight: #44475a;
-    --color-well: #363948;
+  --color-primarylight: #7082b8;
+  --color-primary: #f8f8f2;
+  --color-primarydark: #ff79c6;
+  --color-successlight: #0f0;
+  --color-success: #0c0;
+  --color-successdark: #090;
+  --color-errorlight: #fd4545;
+  --color-error: #ff2d2d;
+  --color-errordark: #c62424;
+  --color-secondarylight: #aaa;
+  --color-secondary: #8be9fd;
+  --color-secondarydark: #666;
+  --color-warninglight: #ffc281;
+  --color-warning: #ffb86c;
+  --color-warningdark: #e6a055;
+  --color-infolight: #a0a0ff;
+  --color-info: #7070ff;
+  --color-infodark: #4040ff;
+  --color-welllight: #44475a;
+  --color-well: #363948;
 
-    --color-tag-1: #d34448;
-    --color-tag-2: #50fa7b;
-    --color-tag-3: #f1fa8c;
-    --color-tag-4: #bd93f9;
-    --color-tag-5: #ff79c6;
-    --color-tag-6: #6495ed;
-    --color-tag-7: #faffdf;
-    --color-disabled: #66cfbc;
-    --color-backgroundprimary: #282a36;
-    --color-backgroundsecondary: #21222c;
-    --color-button: #21222c;
+  --color-tag-1: #d34448;
+  --color-tag-2: #50fa7b;
+  --color-tag-3: #f1fa8c;
+  --color-tag-4: #bd93f9;
+  --color-tag-5: #ff79c6;
+  --color-tag-6: #6495ed;
+  --color-tag-7: #faffdf;
+  --color-disabled: #66cfbc;
+  --color-backgroundprimary: #282a36;
+  --color-backgroundsecondary: #21222c;
+  --color-button: #21222c;
 
-    /* Spacing */
+  /* Spacing */
 
-    --spacing-xs: 0.125em;
-    --spacing-s: 0.25em;
-    --spacing-m: 0.5em;
-    --spacing-l: 0.75em;
-    --spacing-xl: 1em;
+  --spacing-xs: 0.125em;
+  --spacing-s: 0.25em;
+  --spacing-m: 0.5em;
+  --spacing-l: 0.75em;
+  --spacing-xl: 1em;
 }
 
 /* Reset */
@@ -144,9 +146,9 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -158,7 +160,11 @@ select {
 }
 
 /* Body */
-body, button, input, select, textarea {
+body,
+button,
+input,
+select,
+textarea {
   font-family: var(--font-family-primary);
 }
 
@@ -166,4 +172,8 @@ body {
   color: var(--black);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
 }
